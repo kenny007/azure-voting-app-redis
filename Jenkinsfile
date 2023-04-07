@@ -4,11 +4,11 @@ pipeline {
     stages {
         stage('Verify Branch') {
             steps {
-               sh "echo $GIT_BRANCH"
+                sh "echo $GIT_BRANCH"
             }
         }
 
-        stage ('Docker Build') {
+        stage('Docker Build') {
             steps {
                 sh(script: 'docker images -a')
                 sh(script: '''
