@@ -41,7 +41,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 sh(script: '''
-                 pytest ./tests/test_sample.py
+                 /home/ubuntu/.local/bin/pytest ./tests/test_sample.py
                 ''')
             }
         }
