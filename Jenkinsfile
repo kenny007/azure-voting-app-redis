@@ -34,7 +34,7 @@ pipeline {
                     echo 'App started successfully :)'
                 }
                 failure {
-                    echo 'App failted to start :('
+                    echo 'App failed to start :('
                 }
             }
         }
