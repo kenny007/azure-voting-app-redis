@@ -21,6 +21,12 @@ pipeline {
             }
         }
 
+        stage('Stop and remove containers') {
+            steps {
+                sh 'docker-compose down'
+            }
+        }
+
         stage('Start test app') {
             steps {
                 sh(script: '''
@@ -38,6 +44,7 @@ pipeline {
                 }
             }
         }
+
         stage('Install Dependencies') {
             steps {
                 sh(script: '''
@@ -47,6 +54,7 @@ pipeline {
                 ''')
             }
         }
+
         stage('Run Tests') {
             steps {
                 sh(script: '''
