@@ -71,5 +71,17 @@ pipeline {
                 ''')
             }
         }
+        stage('Push container') {
+            steps {
+                echo "Workspace is $WORKSPACE"
+                dir("$WORKSPACE/azure-vote")
+                script {
+                    docker.withRegistry('https://index.docker.io/v1/', 'DockerHb') {
+                        def image = docker.build('kennymore/jenkins-tut:latest')
+                        image.push()
+                    }
+                }
+            }
+        }
     }
 }
