@@ -42,7 +42,7 @@ pipeline {
             steps {
                 sh(script: '''
                 python3 -m venv venv
-                source venv/bin/activate
+                . venv/bin/activate
                 pip install -r requirements.txt
                 ''')
             }
@@ -50,7 +50,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 sh(script: '''
-                source venv/bin/activate
+                . venv/bin/activate
                 chmod +x /home/ubuntu/.local/bin/pytest
                 /home/ubuntu/.local/bin/pytest ./tests/test_sample.py
                 ''')
