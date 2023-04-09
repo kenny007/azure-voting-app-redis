@@ -41,8 +41,8 @@ pipeline {
         stage('Run Tests') {
             steps {
                 sh(script: '''
-                chmod +x /home/ubuntu/.local/bin/pytest
-                /home/ubuntu/.local/bin/python /home/ubuntu/.local/bin/pytest ./tests/test_sample.py
+                sudo chmod +x /home/ubuntu/.local/bin/pytest
+                /home/ubuntu/.local/bin/pytest ./tests/test_sample.py
                 ''')
             }
         }
