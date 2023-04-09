@@ -38,9 +38,19 @@ pipeline {
                 }
             }
         }
+        stage('Install Dependencies') {
+            steps {
+                sh(script: '''
+                python3 -m venv venv
+                source venv/bin/activate
+                pip install -r requirements.txt
+                ''')
+            }
+        }
         stage('Run Tests') {
             steps {
                 sh(script: '''
+                source venv/bin/activate
                 chmod +x /home/ubuntu/.local/bin/pytest
                 /home/ubuntu/.local/bin/pytest ./tests/test_sample.py
                 ''')
