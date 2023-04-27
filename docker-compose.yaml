@@ -6,7 +6,7 @@ services:
     environment:
       ALLOW_EMPTY_PASSWORD: "yes"
     ports:
-        - "6379:6379"
+        - "6370:6379"
 
   azure-vote-front:
     build: ./azure-vote
@@ -15,4 +15,4 @@ services:
     environment:
       REDIS: azure-vote-back
     ports:
-        - "8888:80"
+        - "8889:80"
