@@ -84,5 +84,15 @@ pipeline {
                 }
             }
         }
+        stage('Container scanning') {
+            parallel {
+                stage('Run Trivy') {
+                    steps {
+                        sleep(time: 30, unit: 'SECONDS')
+                        sh(script: 'trivy image kennymore/jenkins-tut:latest')
+                    }
+                }
+            }
+        }
     }
 }

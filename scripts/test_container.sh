@@ -7,7 +7,7 @@ while [ $count -lt 3 ] && ! $started; do
     ((count++))
     echo "[$STAGE_NAME] Starting container [Attempt: $count]"
     
-    if curl -s -o /dev/null -w "%{http_code}" http://localhost:8888 | grep -q "200"; then
+    if curl -s -o /dev/null -w "%{http_code}" http://localhost:8880 | grep -q "200"; then
         started=true
     else
         sleep 1
